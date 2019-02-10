@@ -1,3 +1,5 @@
+let button = document.getElementById("findButton");
+
 function getAnagramsOf(input) {
     const result = [];
     const key = alphabetize(input);
@@ -6,7 +8,15 @@ function getAnagramsOf(input) {
             result.push(word);
         } 
     }
+    let div = document.createElement("div");
+    div.textContent = result;
+    document.body.appendChild(div);
     return result;
+}
+
+button.onclick = function () {
+    let typedText = document.getElementById("input").value;
+    getAnagramsOf(typedText);
 }
 
 function alphabetize(a) {
